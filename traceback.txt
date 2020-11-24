@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+
+  File "rece1.py", line 729, in <module>
+    autorizar(ws, f_entrada, f_salida, '/informarcaea' in sys.argv)
+
+  File "rece1.py", line 187, in autorizar
+    encabezados = json.load(entrada)
+
+  File "/usr/lib/python2.7/json/__init__.py", line 291, in load
+    **kw)
+
+  File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+
+  File "/usr/lib/python2.7/json/decoder.py", line 367, in decode
+    raise ValueError(errmsg("Extra data", s, end, len(s)))
+
+ValueError: Extra data: line 1 column 2 - line 4 column 1 (char 1 - 12063)

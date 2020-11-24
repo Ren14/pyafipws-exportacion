@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<loginTicketResponse version="1.0">
+    <header>
+        <source>CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+        <destination>SERIALNUMBER=CUIT 20359279192, CN=renzovbubuntu16</destination>
+        <uniqueId>1444047277</uniqueId>
+        <generationTime>2020-11-16T16:46:35.788-03:00</generationTime>
+        <expirationTime>2020-11-17T04:46:35.788-03:00</expirationTime>
+    </header>
+    <credentials>
+        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMTYwOTM5MTEyMSIgZ2VuX3RpbWU9IjE2MDU1NTU5MzUiIGV4cF90aW1lPSIxNjA1NTk5MTk1Ii8+CiAgICA8b3BlcmF0aW9uIHR5cGU9ImxvZ2luIiB2YWx1ZT0iZ3JhbnRlZCI+CiAgICAgICAgPGxvZ2luIGVudGl0eT0iMzM2OTM0NTAyMzkiIHNlcnZpY2U9IndzZmUiIHVpZD0iU0VSSUFMTlVNQkVSPUNVSVQgMjAzNTkyNzkxOTIsIENOPXJlbnpvdmJ1YnVudHUxNiIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjIwMzU5Mjc5MTkyIiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==</token>
+        <sign>dtLOwbQoBOL42uKKQa5kQ0+nY0Gb0s1KCpZDUq/xDoAsIgfCpNo7ag7F0x2H1HRDHlTeDfgRSQGzkrKCzqBrekltVVzRyQMkg8xuGWPz0q3EKyRo1ZKf4uKko5lnhAH5aewoGCUMP3CBvcWznUyrs+vCkALICKoow1Tws87cfQQ=</sign>
+    </credentials>
+</loginTicketResponse>
