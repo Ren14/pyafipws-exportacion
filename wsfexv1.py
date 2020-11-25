@@ -93,8 +93,12 @@ class WSFEXv1(BaseWS):
             obs_comerciales="", obs_generales="", forma_pago="", incoterms="", 
             idioma_cbte=7, incoterms_ds=None, fecha_pago=None, **kwargs):
         "Creo un objeto factura (interna)"
-        # Creo una factura electronica de exportación 
+        
+        # Si es una ND o NC no debo informar la fecha de pago
+        if tipo_cbte in (20,21):
+            fecha_pago = None
 
+        # Creo una factura electronica de exportación 
         fact = {'tipo_cbte': tipo_cbte, 
                 'punto_vta': punto_vta,
                 'cbte_nro': cbte_nro, 

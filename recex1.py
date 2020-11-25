@@ -457,18 +457,26 @@ if __name__ == "__main__":
             print "ImpTotal =", ws.ImpTotal
             print "CAE = ", ws.CAE
             print "Vencimiento = ", ws.Vencimiento
-            print ws.ErrMsg 
+            print "Error Msg = ", ws.ErrMsg 
+            print "Archivo de salido = ", salida
 
-            depurar_xml(ws.client)
-            escribir_factura({'tipo_cbte': tipo_cbte, 
-                              'punto_vta': ws.PuntoVenta, 
-                              'cbte_nro': ws.CbteNro, 
-                              'fecha_cbte': ws.FechaCbte, 
-                              'imp_total': ws.ImpTotal, 
-                              'cae': str(ws.CAE), 
-                              'fch_venc_cae': ws.Vencimiento,  
-                              'err_msg': ws.ErrMsg,
-                            }, open(salida,"w"))
+            # Acá escribo el resultado en el archivo factura.json        
+            factura = []
+
+            factura.append({
+                'tipo_cbte': tipo_cbte, 
+                'punto_vta': ws.PuntoVenta, 
+                'cbte_nro': ws.CbteNro, 
+                'fecha_cbte': ws.FechaCbte, 
+                'imp_total': ws.ImpTotal, 
+                'cae': str(ws.CAE), 
+                'fch_venc_cae': ws.Vencimiento,  
+                'err_msg': ws.ErrMsg,
+                })
+
+            with open('factura.json', 'w') as file:
+                json.dump(factura, file, indent=4)
+            
             sys.exit(0)
 
         if '/ctz' in sys.argv:
@@ -500,10 +508,7 @@ if __name__ == "__main__":
             f = open("factura.json", "r")
             content = f.read()
             data = json.loads(content)
-            for factura in data:
-                print "Cbte Nro", factura['cbte_nro']
-                print "Tipo ", factura['tipo_cbte']
-                ## SEGUIR ACA                
+            for factura in data:                
                 f_entrada = open(entrada,"w")
 
                 tipo_cbte = factura['tipo_cbte']
@@ -556,9 +561,9 @@ if __name__ == "__main__":
                 # Agrego un comprobante asociado (solo para N/C o N/D)
                 if tipo_cbte in (20,21): 
                     cbteasoc_tipo = 19
-                    cbteasoc_pto_vta = 2
-                    cbteasoc_nro = 1234
-                    cbteasoc_cuit = 20111111111
+                    cbteasoc_pto_vta = factura['punto_vta']
+                    cbteasoc_nro = factura['cbte_nro_factura_original'] ## Si es una N/C o N/D debo enviar el # de la factura original
+                    cbteasoc_cuit = factura['id_impositivo']
                     ws.AgregarCmpAsoc(cbteasoc_tipo, cbteasoc_pto_vta, cbteasoc_nro, cbteasoc_cuit)
                     
                 dic = ws.factura
