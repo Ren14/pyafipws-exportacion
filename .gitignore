@@ -14,3 +14,7 @@ wsaa.py
 wsfev1.pyc
 wsfexv1.pyc
 wsfexv1.py
+PyAfipWs.egg-info/
+build/
+dist/
+
