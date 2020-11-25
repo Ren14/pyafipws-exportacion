@@ -1,0 +1,16 @@
+cache
+cache/	
+cache/*	
+conf/rece.ini
+entrada.json
+factura.json
+request*
+response*
+salida.json
+traceback.txt
+utils.pyc
+wsaa.pyc
+wsaa.py
+wsfev1.pyc
+wsfexv1.pyc
+wsfexv1.py
