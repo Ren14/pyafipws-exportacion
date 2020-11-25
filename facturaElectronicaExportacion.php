@@ -105,10 +105,6 @@ $item_factura = array(
     'importe' => "300.00",
 );
 
-$permiso_existente = array(
-    'id_permiso' => '99999AAXX999999A',
-    'dst_merc' => '225',
-);
 
 $factura_a_enviar = array(
     'tipo_cbte'=> 19, // Tipo de comprobante 19 Factura Exportación ***OBLIGATORIO***
@@ -143,42 +139,46 @@ $factura_a_enviar = array(
     'reproceso' => '', // Valor a ser llenado luego de emitir la factura
 );
 
+echo "<h1>Ejemplo de emisión de Factura Electrónica de Exportación</h1><br>";
+
 #0. Creo el objeto Factura Electronica de Exportación. Construyo el array de la factura de testing por medio del constructor
 $fee = new FacturaElectronicaExportacion();
-echo "Paso 0 OK <br>";
+echo "1. Creo el objeto Factura <br>";
 
 #1. Seteo el array a facturar
 $fee->setFactura($factura_a_enviar);
-echo "Paso 1 OK <br>";
+echo "2. Seteo el array de factura OK <br>";
 
 #2. Obtengo la cotizacion de la moneda
 $cotizacion_moneda = $fee->getCotizacionMoneda();
-echo "Paso 2 OK <br>";
+echo "3. Obtengo la cotizacion de la moneda DOL OK <br>";
 
 #3. Seteo la cotizacion de la moneda obtenida
 $fee->setCotizacionMoneda($cotizacion_moneda);
-echo "Paso 3 OK <br>";
+echo "4. Seteo la cotizacion de la moneda OK <br>";
 
 #4. Obtengo el último número de factura
 $last_number = $fee->getUltimoNumeroComrpobate();
-echo "Paso 4 OK <br>";
+echo "5. Obtengo el ultimo numero de la factura OK <br>";
 
 #5. Seteo en el array de factura el último numero de la factura
 $fee->setUltimoNumeroComprobante($last_number);
-echo "Paso 5 OK <br>";
+echo "6. Seteo en la factura el numero de comprobante a solicitar OK <br>";
 
 #6. Escribo el archivo factura.json con los datos a facturar
 $fee->escribirArchivoJsonFactura();
-echo "Paso 6 OK <br>";
+echo "7. Escribo la factura en formato JSON OK <br>";
 
 # Muestro por pantalla la factura a enviar
+echo "8. Debbug de la factura a emitir <br>";
 $fee->debug($fee->getFactura());
 
 #7. Obtengo el CAE
 $fee->obtenerCAE();
-echo "Paso 7 OK <br>";
+echo "9. Obtengo el CAE OK <br>";
 
 #8. Leo y muestro el archivo resultante
+echo "10. Resultado de la operacion <br>";
 print_r($fee->getJsonResultadoOperacion());
 
 ?>
